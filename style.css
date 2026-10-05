@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================
+   FONTS
+========================= */
+
 @font-face {
     font-family: "IranNastaliq";
     src: url("assets/IranNastaliq.ttf") format("truetype");
@@ -8,22 +15,24 @@
 
 
 /* =========================
-   VARIABLES
+   ROOT
 ========================= */
 
 :root {
-    --pink: #d78caf;
-    --pink-dark: #a94f78;
-    --pink-light: #f7dce9;
+    --pink: #d99ab8;
+    --pink-dark: #b86f94;
+    --pink-light: #efd1df;
 
-    --lilac: #b99bc9;
-    --lilac-light: #e9dded;
+    --lilac: #b9a1c9;
+    --lilac-light: #ddd0e5;
 
-    --white: #fffafc;
-    --text: #694f5d;
-    --text-light: #8d7480;
+    --cream: #fff9fc;
+    --white: #ffffff;
 
-    --shadow: 0 15px 45px rgba(160, 105, 135, 0.13);
+    --text: #654f5d;
+    --text-light: #927b89;
+
+    --shadow: rgba(150, 100, 130, 0.14);
 }
 
 
@@ -32,9 +41,9 @@
 ========================= */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -43,7 +52,6 @@ html {
 
 body {
     font-family: "Estedad", sans-serif;
-
     color: var(--text);
 
     background-color: #f8eaf3;
@@ -63,30 +71,21 @@ body {
     overflow-x: hidden;
 }
 
-button,
-a {
-    font-family: inherit;
-}
-
 
 /* =========================
-   INTRO
+   INTRO / FIRST PAGE
 ========================= */
 
 .intro {
     position: fixed;
-
     inset: 0;
-
     z-index: 1000;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    min-height: 100vh;
-    min-height: 100svh;
+    text-align: center;
 
     background:
         linear-gradient(
@@ -99,131 +98,109 @@ a {
     background-size: cover;
 
     transition:
-        opacity 0.9s ease,
-        visibility 0.9s ease;
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
 .intro.hidden {
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 }
 
 .intro-content {
-    width: min(90%, 650px);
+    width: min(90%, 520px);
 
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    animation: introAppear 1.2s ease both;
+    animation: introAppear 1.5s ease both;
 }
 
 .intro-small {
-    font-size: 0.9rem;
+    color: var(--pink-dark);
 
-    color: var(--text-light);
+    font-size: 0.82rem;
+    font-weight: 400;
 
     margin-bottom: 20px;
+
+    letter-spacing: 0.02em;
 }
 
-.intro-heart {
-    font-size: 3.2rem;
+.intro-symbol {
+    color: var(--pink-dark);
 
-    color: var(--pink);
+    font-size: 1.5rem;
 
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 
-    animation: heartFloat 3s ease-in-out infinite;
+    animation: heartPulse 2s ease-in-out infinite;
 }
 
 .intro h1 {
     font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: clamp(3rem, 10vw, 6rem);
+    color: var(--pink-dark);
 
+    font-size: 4rem;
     font-weight: normal;
 
-    line-height: 1.35;
+    line-height: 1.3;
 
-    color: var(--pink-dark);
+    margin-bottom: 10px;
 }
 
-.intro h1 span {
-    font-family: "Estedad", sans-serif;
+.intro-subtitle {
+    color: var(--text);
 
-    font-size: 0.35em;
+    font-size: 0.85rem;
+    font-weight: 400;
 
-    color: var(--lilac);
+    margin-bottom: 38px;
 }
-
-.intro-line {
-    width: 80px;
-
-    height: 1px;
-
-    margin: 10px auto 18px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--pink),
-            transparent
-        );
-}
-
-.intro p {
-    font-size: 0.95rem;
-
-    color: var(--text-light);
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================
-   ENTER BUTTON
-========================= */
 
 .enter-button {
-    border: none;
-    outline: none;
+    border: 1px solid rgba(184, 111, 148, 0.3);
 
-    padding: 13px 25px;
-
-    border-radius: 50px;
-
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 250, 253, 0.8);
 
     color: var(--pink-dark);
 
-    border: 1px solid rgba(215, 140, 175, 0.35);
+    font-family: "Estedad", sans-serif;
+    font-size: 0.82rem;
 
-    box-shadow:
-        0 10px 30px rgba(160, 105, 135, 0.12);
+    padding: 13px 27px;
+
+    border-radius: 40px;
 
     cursor: pointer;
 
-    font-size: 0.85rem;
+    box-shadow:
+        0 8px 25px rgba(150, 100, 130, 0.12);
+
+    backdrop-filter: blur(10px);
 
     transition:
         transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
 .enter-button span {
     margin-right: 7px;
+
+    font-size: 1rem;
 }
 
 .enter-button:hover {
     transform: translateY(-3px);
 
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.92);
 
     box-shadow:
-        0 14px 35px rgba(160, 105, 135, 0.18);
+        0 12px 30px rgba(150, 100, 130, 0.18);
 }
 
 .enter-button:active {
@@ -232,12 +209,11 @@ a {
 
 
 /* =========================
-   MAIN
+   MAIN CONTENT
 ========================= */
 
 .main-content {
     opacity: 0;
-
     visibility: hidden;
 
     transition: opacity 1s ease;
@@ -245,7 +221,6 @@ a {
 
 .main-content.visible {
     opacity: 1;
-
     visibility: visible;
 }
 
@@ -262,25 +237,38 @@ a {
 
     z-index: 100;
 
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(184, 111, 148, 0.25);
 
-    background: rgba(255, 250, 252, 0.75);
+    background: rgba(255, 250, 253, 0.82);
 
     color: var(--pink-dark);
+
+    font-family: serif;
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     backdrop-filter: blur(10px);
 
     box-shadow:
         0 8px 25px rgba(150, 100, 130, 0.12);
 
-    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
 
-    font-size: 1.2rem;
+.music-button:hover {
+    transform: scale(1.08);
 }
 
 .music-button.playing {
@@ -289,17 +277,15 @@ a {
 
 
 /* =========================
-   HERO
+   HERO / SECOND PAGE
 ========================= */
 
 .hero {
     position: relative;
 
     min-height: 100vh;
-    min-height: 100svh;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -307,60 +293,74 @@ a {
 
     overflow: hidden;
 
-    background:
+    /*
+       صفحه دوم از bg2 استفاده می‌کند.
+       فایل:
+       assets/bg2.png
+    */
+
+    background-image:
         linear-gradient(
-            rgba(250, 235, 246, 0.73),
-            rgba(246, 232, 245, 0.84)
+            rgba(250, 235, 246, 0.25),
+            rgba(246, 232, 245, 0.35)
         ),
-        url("assets/background.jpg");
+        url("assets/bg2.png");
 
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.hero-overlay {
-    position: absolute;
+.hero::after {
+    content: "";
 
+    position: absolute;
     inset: 0;
 
     background:
         radial-gradient(
             circle at center,
-            rgba(255, 255, 255, 0.30),
-            transparent 60%
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 245, 250, 0.18)
         );
+
+    pointer-events: none;
 }
 
 .hero-content {
     position: relative;
 
-    z-index: 2;
+    z-index: 5;
 
-    width: 92%;
+    width: min(92%, 700px);
 
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    padding: 40px 15px;
-
-    animation: heroAppear 1.5s ease both;
+    padding:
+        100px 20px
+        150px;
 }
 
-.hero-eyebrow {
-    font-size: 0.8rem;
+.hero-small {
+    color: var(--pink-dark);
 
-    color: var(--text-light);
+    font-size: 0.82rem;
+    font-weight: 500;
 
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 1px 8px rgba(255, 255, 255, 0.7);
 }
 
 .hero-symbol {
-    color: var(--lilac);
+    color: var(--pink-dark);
 
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 
-    margin-bottom: 5px;
-
-    animation: starFloat 3s ease-in-out infinite;
+    margin-bottom: 13px;
 }
 
 .hero h1 {
@@ -377,6 +377,9 @@ a {
     margin-bottom: 10px;
 
     white-space: nowrap;
+
+    text-shadow:
+        0 2px 12px rgba(255, 255, 255, 0.8);
 }
 
 .hero h1 span {
@@ -392,24 +395,35 @@ a {
 }
 
 .hero-date {
-    font-size: 1rem;
-
     color: var(--text);
 
-    margin-bottom: 22px;
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    margin-bottom: 27px;
+
+    text-shadow:
+        0 1px 7px rgba(255, 255, 255, 0.8);
 }
 
 .hero-poem {
     font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: clamp(1.5rem, 4vw, 2.4rem);
-
     color: var(--pink-dark);
+
+    font-size: 1.75rem;
+
+    line-height: 2;
+
+    margin-top: 5px;
+
+    text-shadow:
+        0 2px 10px rgba(255, 255, 255, 0.75);
 }
 
 
 /* =========================
-   CLEAR SCROLL GUIDE
+   SCROLL GUIDE
 ========================= */
 
 .scroll-guide {
@@ -418,13 +432,11 @@ a {
     z-index: 10;
 
     bottom: 24px;
-
     left: 50%;
 
     transform: translateX(-50%);
 
     width: max-content;
-
     min-width: 180px;
 
     padding: 9px 18px 12px;
@@ -451,7 +463,6 @@ a {
     color: var(--pink-dark);
 
     font-size: 0.75rem;
-
     font-weight: 500;
 
     line-height: 1.7;
@@ -476,92 +487,107 @@ a {
 
     font-weight: 400;
 
-    animation: arrowDown 1.2s ease-in-out infinite;
+    animation:
+        arrowDown 1.2s ease-in-out infinite;
 }
 
 
 /* =========================
-   SECTIONS
+   GENERAL SECTIONS
 ========================= */
 
 .section {
     position: relative;
 
-    padding: 90px 20px;
+    padding: 100px 20px;
+
+    text-align: center;
 }
 
 .section-inner {
     width: min(100%, 850px);
 
     margin: 0 auto;
-
-    text-align: center;
 }
 
-.section-label {
-    color: var(--pink);
+.section-title {
+    font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: 0.8rem;
+    color: var(--pink-dark);
+
+    font-size: 2.6rem;
+
+    font-weight: normal;
+
+    line-height: 1.5;
 
     margin-bottom: 12px;
 }
 
-.section h2 {
-    font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
+.section-subtitle {
+    color: var(--text-light);
 
-    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-size: 0.8rem;
 
-    font-weight: normal;
-
-    color: var(--pink-dark);
-
-    line-height: 1.5;
-
-    margin-bottom: 18px;
+    margin-bottom: 30px;
 }
 
-.section-line {
-    width: 70px;
-
-    height: 1px;
-
-    margin: 0 auto 25px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--lilac),
-            transparent
-        );
-}
-
-.section p {
+.section-text {
     max-width: 650px;
 
     margin: 0 auto;
 
-    font-size: 0.92rem;
+    color: var(--text);
 
-    line-height: 2.2;
+    font-size: 0.83rem;
 
-    color: var(--text-light);
+    line-height: 2.5;
 }
 
-.invitation {
+
+/* =========================
+   DECORATIVE DIVIDER
+========================= */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    margin: 25px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    width: 55px;
+    height: 1px;
+
     background:
         linear-gradient(
-            rgba(250, 237, 247, 0.92),
-            rgba(244, 233, 246, 0.95)
+            to left,
+            transparent,
+            var(--pink-light)
         );
 }
 
-.invitation-decoration {
-    color: var(--lilac);
+.divider::after {
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--pink-light)
+        );
+}
 
-    font-size: 1.5rem;
+.divider span {
+    color: var(--pink);
 
-    margin-top: 30px;
+    font-size: 0.85rem;
 }
 
 
@@ -569,34 +595,40 @@ a {
    DETAILS
 ========================= */
 
-.details {
+.details-section {
     background:
         linear-gradient(
-            rgba(255, 250, 252, 0.88),
-            rgba(248, 238, 248, 0.92)
+            rgba(255, 249, 252, 0.68),
+            rgba(251, 240, 248, 0.78)
         );
 }
 
 .details-grid {
+    width: min(100%, 900px);
+
+    margin: 45px auto 0;
+
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
     gap: 18px;
-
-    margin-top: 35px;
 }
 
 .detail-card {
-    padding: 28px 18px;
+    padding: 27px 18px;
 
-    border-radius: 24px;
+    border-radius: 22px;
 
-    background: rgba(255, 255, 255, 0.55);
+    background:
+        rgba(255, 255, 255, 0.62);
 
-    border: 1px solid rgba(215, 140, 175, 0.16);
+    border:
+        1px solid rgba(205, 145, 174, 0.17);
 
-    box-shadow: var(--shadow);
+    box-shadow:
+        0 10px 35px var(--shadow);
 
     backdrop-filter: blur(8px);
 
@@ -609,49 +641,76 @@ a {
     transform: translateY(-5px);
 
     box-shadow:
-        0 20px 45px rgba(160, 105, 135, 0.17);
+        0 15px 40px rgba(150, 100, 130, 0.18);
 }
 
 .detail-icon {
-    color: var(--pink);
+    color: var(--pink-dark);
 
-    font-size: 1.5rem;
+    font-size: 1.45rem;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .detail-title {
-    font-size: 0.75rem;
+    color: var(--pink-dark);
 
-    color: var(--text-light);
+    font-size: 0.78rem;
+    font-weight: 600;
 
     margin-bottom: 8px;
 }
 
 .detail-value {
-    font-size: 0.9rem;
-
-    line-height: 1.9;
-
     color: var(--text);
+
+    font-size: 0.78rem;
+
+    line-height: 2;
 }
 
+
+/* =========================
+   MAP BUTTON
+========================= */
+
 .map-button {
-    display: inline-block;
+    display: inline-flex;
 
-    margin-top: 13px;
+    align-items: center;
+    justify-content: center;
 
-    padding: 7px 13px;
+    margin-top: 35px;
 
-    border-radius: 20px;
+    padding: 12px 25px;
+
+    border-radius: 35px;
 
     text-decoration: none;
 
-    font-size: 0.7rem;
-
     color: var(--pink-dark);
 
-    background: rgba(215, 140, 175, 0.12);
+    background:
+        rgba(255, 255, 255, 0.7);
+
+    border:
+        1px solid rgba(184, 111, 148, 0.25);
+
+    font-size: 0.75rem;
+
+    box-shadow:
+        0 8px 25px rgba(150, 100, 130, 0.1);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.map-button:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.92);
 }
 
 
@@ -662,53 +721,62 @@ a {
 .countdown-section {
     background:
         linear-gradient(
-            rgba(244, 229, 245, 0.92),
-            rgba(250, 237, 247, 0.94)
+            rgba(246, 232, 244, 0.55),
+            rgba(255, 248, 252, 0.65)
         );
 }
 
 .countdown {
     display: flex;
 
+    align-items: center;
     justify-content: center;
 
     gap: 12px;
 
-    margin-top: 35px;
+    margin-top: 40px;
+
+    direction: ltr;
 }
 
 .countdown-item {
-    width: 90px;
+    width: 86px;
 
-    padding: 18px 8px;
+    padding: 17px 7px;
 
     border-radius: 20px;
 
-    background: rgba(255, 255, 255, 0.62);
+    background:
+        rgba(255, 255, 255, 0.68);
 
-    border: 1px solid rgba(215, 140, 175, 0.15);
+    border:
+        1px solid rgba(205, 145, 174, 0.18);
 
-    box-shadow: var(--shadow);
+    box-shadow:
+        0 8px 25px rgba(150, 100, 130, 0.1);
+
+    backdrop-filter: blur(8px);
 }
 
 .countdown-item span {
     display: block;
 
-    font-size: 1.7rem;
-
     color: var(--pink-dark);
 
+    font-size: 1.6rem;
     font-weight: 500;
+
+    line-height: 1.3;
 }
 
 .countdown-item small {
     display: block;
 
-    margin-top: 5px;
-
-    font-size: 0.65rem;
-
     color: var(--text-light);
+
+    font-size: 0.62rem;
+
+    margin-top: 5px;
 }
 
 
@@ -717,61 +785,70 @@ a {
 ========================= */
 
 .closing {
-    padding-bottom: 70px;
+    padding:
+        100px 20px
+        85px;
+
+    text-align: center;
 
     background:
         linear-gradient(
-            rgba(249, 233, 245, 0.92),
-            rgba(245, 229, 244, 0.96)
+            rgba(255, 247, 251, 0.7),
+            rgba(247, 234, 245, 0.8)
         );
 }
 
 .closing-heart {
-    font-size: 3rem;
+    color: var(--pink-dark);
 
-    color: var(--pink);
+    font-size: 1.7rem;
 
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
-    animation: heartFloat 3s ease-in-out infinite;
+    animation:
+        heartPulse 2s ease-in-out infinite;
 }
 
-.closing p {
-    margin-bottom: 25px;
-}
-
-.closing h2 {
-    margin-bottom: 10px;
-}
-
-.closing-date {
-    font-size: 0.9rem;
-
-    color: var(--text-light);
-
-    margin-bottom: 25px;
-}
-
-.closing-line {
-    width: 55px;
-
-    height: 1px;
-
-    margin: 0 auto 25px;
-
-    background: var(--lilac);
-}
-
-.closing-formal {
-    max-width: 600px;
+.closing-text {
+    max-width: 650px;
 
     margin: 0 auto;
 
-    font-size: 0.72rem;
+    color: var(--text);
 
-    line-height: 2;
+    font-size: 0.85rem;
+
+    line-height: 2.4;
+}
+
+.closing-date {
+    color: var(--pink-dark);
+
+    font-family:
+        "IranNastaliq",
+        "Noto Naskh Arabic",
+        serif;
+
+    font-size: 2rem;
+
+    margin-top: 22px;
+}
+
+.formal-note {
+    max-width: 650px;
+
+    margin: 35px auto 0;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(184, 111, 148, 0.18);
 
     color: var(--text-light);
+
+    font-size: 0.72rem;
+
+    line-height: 2.4;
 }
 
 
@@ -780,15 +857,16 @@ a {
 ========================= */
 
 footer {
-    padding: 25px 20px 35px;
+    padding: 25px 20px 30px;
 
     text-align: center;
 
-    font-size: 0.65rem;
-
     color: var(--text-light);
 
-    background: rgba(244, 228, 243, 0.96);
+    font-size: 0.62rem;
+
+    background:
+        rgba(246, 231, 243, 0.75);
 }
 
 
@@ -807,43 +885,37 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
-@keyframes heartFloat {
+@keyframes heartPulse {
 
     0%,
     100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
-@keyframes starFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-5px) rotate(8deg);
-    }
-}
-
-@keyframes heroAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(0.97);
-    }
-
-    to {
-        opacity: 1;
         transform: scale(1);
+        opacity: 0.8;
     }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+
+}
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 8px 25px rgba(150, 100, 130, 0.12);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 30px rgba(184, 111, 148, 0.3);
+    }
+
 }
 
 @keyframes arrowDown {
@@ -858,45 +930,44 @@ footer {
         transform: translateY(7px);
         opacity: 1;
     }
+
 }
 
 @keyframes guideFloat {
 
     0%,
     100% {
-        transform: translateX(-50%) translateY(0);
+        transform:
+            translateX(-50%)
+            translateY(0);
     }
 
     50% {
-        transform: translateX(-50%) translateY(-5px);
+        transform:
+            translateX(-50%)
+            translateY(-5px);
     }
+
 }
 
 @keyframes guideAppear {
 
     from {
         opacity: 0;
-        transform: translateX(-50%) translateY(15px);
+
+        transform:
+            translateX(-50%)
+            translateY(15px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-}
 
-@keyframes musicPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 8px 25px rgba(150, 100, 130, 0.12);
+        transform:
+            translateX(-50%)
+            translateY(0);
     }
 
-    50% {
-        box-shadow:
-            0 8px 30px rgba(215, 140, 175, 0.35);
-    }
 }
 
 
@@ -910,6 +981,31 @@ footer {
         font-size: 3.2rem;
     }
 
+    .intro-subtitle {
+        font-size: 0.76rem;
+    }
+
+    .enter-button {
+        font-size: 0.76rem;
+
+        padding:
+            12px 23px;
+    }
+
+
+    .hero {
+        min-height: 100svh;
+
+        background-position:
+            center center;
+    }
+
+    .hero-content {
+        padding:
+            90px 15px
+            145px;
+    }
+
     .hero h1 {
         font-size: 2.65rem;
 
@@ -918,15 +1014,31 @@ footer {
 
     .hero-poem {
         font-size: 1.55rem;
+
+        line-height: 1.9;
     }
 
+
     .section {
-        padding: 75px 18px;
+        padding:
+            75px 18px;
     }
+
+    .section-title {
+        font-size: 2.25rem;
+    }
+
+    .section-text {
+        font-size: 0.76rem;
+
+        line-height: 2.35;
+    }
+
 
     .details-grid {
         grid-template-columns: 1fr;
     }
+
 
     .countdown {
         gap: 7px;
@@ -935,7 +1047,8 @@ footer {
     .countdown-item {
         width: 74px;
 
-        padding: 15px 5px;
+        padding:
+            15px 5px;
     }
 
     .countdown-item span {
@@ -946,6 +1059,7 @@ footer {
         font-size: 0.58rem;
     }
 
+
     .music-button {
         width: 42px;
         height: 42px;
@@ -954,14 +1068,15 @@ footer {
         left: 14px;
     }
 
-    /* واضح‌تر روی موبایل */
 
     .scroll-guide {
         bottom: 18px;
 
         min-width: 190px;
 
-        padding: 8px 18px 11px;
+        padding:
+            8px 18px
+            11px;
     }
 
     .scroll-text {
@@ -977,6 +1092,7 @@ footer {
 
         margin-top: 4px;
     }
+
 }
 
 
@@ -1005,4 +1121,5 @@ footer {
     .scroll-guide {
         min-width: 175px;
     }
+
 }
